@@ -1,4 +1,5 @@
 /* Create an array named products which you will use to add all of your product object literals that you create in the next step. */
+var totalPaid;
 const products = [
   {
     name: "Cherry",
@@ -58,8 +59,6 @@ function addProductToCart(productId){
       //clone the product object and set the quantity to 1
       const newProduct = {...productToAdd, quantity: 1};
       cart.push(newProduct); //Add the product to cart
-    }else {
-      console.log("Products not found.");
     }
   }
 }
@@ -73,8 +72,6 @@ function increaseQuantity(productId){
   const quantityToAdd = cart.find((item) => item.productId === productId);
   if(quantityToAdd){
     quantityToAdd.quantity += 1;
-  }else{
-    console.log("Products not found.");
   }
 }
 /* Create a function named decreaseQuantity that takes in the productId as an argument
@@ -91,8 +88,6 @@ function decreaseQuantity(productId){
     if (quantityToReduce.quantity === 0){
       const index = products.indexOf(quantityToReduce);
       cart.splice(index, 1);
-    }else {
-      console.log("Products not found.");
     }
   }
 }
@@ -132,7 +127,7 @@ function removeProductFromCart(productId){
   }
 
   const total = cartTotal();
-  console.log("Cart Total: ", total);
+  // console.log("Cart Total: ", total);
 
 /* Create a function called emptyCart that empties the products from the cart */
 
@@ -147,8 +142,8 @@ function emptyCart(){
 */
 function pay(amount){
   const total = cartTotal();
-  const change = amount - total;
-  return change;
+  totalPaid =  amount - total;
+  return totalPaid;
 }
 
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
