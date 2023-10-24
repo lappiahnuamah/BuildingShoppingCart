@@ -1,5 +1,4 @@
 /* Create an array named products which you will use to add all of your product object literals that you create in the next step. */
-var totalPaid;
 const products = [
   {
     name: "Cherry",
@@ -142,7 +141,7 @@ function emptyCart(){
 */
 function pay(amount){
   const total = cartTotal();
-  totalPaid =  amount - total;
+  var totalPaid =  amount - total;
   return totalPaid;
 }
 
